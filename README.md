@@ -1,4 +1,3 @@
-```markdown
 # Deep Learning-Based Framework for Plastic Debris Detection in Dynamic Aquatic Ecosystems
 
 **Author:** Hamdi Braiek
@@ -264,7 +263,7 @@ Contributions welcome! Feel free to open issues or PRs for improvements, new dat
 **Made with ❤️ for environmental conservation and marine ecosystem protection.**
 
 *Let's clean our waters with AI!*
-```
+
 
 ## 📚 Citation
 
@@ -281,7 +280,7 @@ If you use this code in your research, please cite the original paper:
 
 ## 📧 Contact
 
-Author: Hamdi Braiek  
-Email: hamdi.houichet@gmail.com  
-GitHub: [braiekhandi](https://github.com/braiekhandi)
+- Author: Hamdi Braiek  
+- Email: hamdi.houichet@gmail.com  
+- GitHub: [braiekhandi](https://github.com/braiekhandi)
 ---
