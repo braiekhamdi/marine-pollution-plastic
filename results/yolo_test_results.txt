@@ -1,0 +1,17 @@
+YOLO TEST SET EVALUATION
+=================================================================
+Model: marine-pollution-detection/yolov8n_seg_v2/weights/best.pt
+
+Overall Precision : 0.6556
+Overall Recall    : 0.5827
+mAP@0.50          : 0.6331
+mAP@0.50:0.95     : 0.5367
+
+Class                 Precision     Recall    AP@0.50   AP@0.50:0.95
+-----------------------------------------------------------------
+face_mask                0.8509     0.7170     0.7873         0.7229
+globe                    0.6372     0.6667     0.6392         0.5285
+plastic_bag              0.9462     0.8506     0.9437         0.8933
+plastic_bottle           0.9130     0.6316     0.8007         0.6787
+plastic_cup              0.0000     0.0000     0.0000         0.0000
+plastic_waste            0.5864     0.6304     0.6278         0.3970

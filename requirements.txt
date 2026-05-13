@@ -1,0 +1,13 @@
+torch
+torchvision
+numpy
+matplotlib
+opencv-python
+pillow
+tqdm
+kagglehub
+roboflow
+pillow_heif==0.10.0
+ultralytics
+streamlit
+git+https://github.com/facebookresearch/segment-anything.git

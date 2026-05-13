@@ -1,0 +1,141 @@
+
+SAM SEGMENTATION EVALUATION — TEST SET
+=======================================================
+
+@braiekhamdi ➜ /workspaces/marine-pollution-plastic (main) $ python evaluate_sam.py 
+Using device: cpu
+
+Loading YOLO model...
+Loading SAM model (vit_h)...
+Models loaded.
+
+Found 116 test images.
+
+[  1/116] 0211007105217_jpg.rf.97661b84dc19bcccecb IoU=0.9117
+[  2/116] 18_jpg.rf.a6f893084f540d0d0f14ab524dbd14 IoU=0.9839
+[  3/116] 19_jpg.rf.4cd47391ba8b9f254fdb6ba866377b IoU=0.9609
+[  4/116] 66b85ac2-5d1b-4783-b0fa-4f8adcda51a5_jpg IoU=0.3306
+[  5/116] STOCK_DSC8177_3opix2_jpg.rf.9709a839ea3c IoU=0.2722
+[  6/116] file-20201009-15-l-1atu53y_jpeg_jpg.rf.c IoU=0.7079
+[  7/116] frame_00025_png_jpg.rf.0e55320d4f053bd5d IoU=0.9239
+[ 10/116] frame_00050_png_jpg.rf.fc5e12ec09db3cd34 IoU=0.9809
+[ 12/116] frame_00110_png_jpg.rf.45223d1c9661b9a72 IoU=0.9665
+[ 13/116] frame_00125_png_jpg.rf.6facfcb1b8952c2a7 IoU=0.9462
+[ 14/116] frame_00125_png_jpg.rf.c0e37bd88d617382b IoU=0.5517
+[ 15/116] frame_00150_png_jpg.rf.94db92c5aeb097bbc IoU=0.6013
+[ 16/116] frame_00175_png_jpg.rf.66d70dea24db03c80 IoU=0.4785
+[ 17/116] frame_00175_png_jpg.rf.6816ef685136ca095 IoU=0.9871
+[ 18/116] frame_00200_png_jpg.rf.5d8980ae0f9cd65af IoU=0.5698
+[ 19/116] frame_00200_png_jpg.rf.ab143fca146511f6d IoU=0.7725
+[ 20/116] frame_00225_png_jpg.rf.28cb0bc35034a62d7 IoU=0.9151
+[ 21/116] frame_00255_png_jpg.rf.edcfcc1e0911f4ac7 IoU=0.9337
+[ 22/116] frame_00285_png_jpg.rf.b0bd463270ce6fd8a IoU=0.8942
+[ 23/116] frame_00285_png_jpg.rf.d9bf9cedae820ee80 IoU=0.5429
+[ 24/116] frame_00300_png_jpg.rf.7a01545d401f93bb2 IoU=0.9660
+[ 25/116] frame_00325_png_jpg.rf.63cc3a7517bffdf84 IoU=0.8373
+[ 26/116] frame_00325_png_jpg.rf.7bbb7ab9b5610c006 IoU=0.8898
+[ 27/116] frame_00330_png_jpg.rf.b07285501a14dffcd IoU=0.8189
+[ 28/116] frame_00375_png_jpg.rf.4f4e629a83b727bbb IoU=0.8473
+[ 29/116] frame_00375_png_jpg.rf.623fa285ff69e8159 IoU=0.3618
+[ 30/116] frame_00375_png_jpg.rf.acc10e67dda62ecd0 IoU=0.8244
+[ 31/116] frame_00425_png_jpg.rf.632a8aba505f120fc IoU=0.6507
+[ 32/116] frame_00425_png_jpg.rf.71c168a538730b0c4 IoU=0.9406
+[ 33/116] frame_00450_png_jpg.rf.0825d2402ba25822e IoU=0.7616
+[ 34/116] frame_00450_png_jpg.rf.b29a1fe6735525ed2 IoU=0.7138
+[ 35/116] frame_00475_png_jpg.rf.d5d9348e93845a119 IoU=0.0797
+[ 36/116] frame_00500_png_jpg.rf.0f0fc23d52e70606d IoU=0.8040
+[ 37/116] frame_00500_png_jpg.rf.a67f48d084f399153 IoU=0.7997
+[ 38/116] frame_00500_png_jpg.rf.b73976751bb53c3aa IoU=0.9330
+[ 39/116] frame_00525_png_jpg.rf.01debbc0b3f1dac84 IoU=0.9022
+[ 40/116] frame_00525_png_jpg.rf.96a885d26b3807348 IoU=0.0005
+[ 41/116] frame_00575_png_jpg.rf.ff630f33cea00a602 IoU=0.8887
+[ 42/116] frame_00600_png_jpg.rf.485b98c05a88d7ae0 IoU=0.9145
+[ 43/116] frame_00600_png_jpg.rf.6026834997968e4d9 IoU=0.8876
+[ 44/116] frame_00600_png_jpg.rf.8d05f1de93213ede1 IoU=0.9371
+[ 45/116] frame_00625_png_jpg.rf.1ae5109b4219679a0 IoU=0.0000
+[ 46/116] frame_00630_png_jpg.rf.fb46f0c36fa2d1f91 IoU=0.3613
+[ 47/116] frame_00645_png_jpg.rf.1eb3223ed249e16cf IoU=0.7607
+[ 48/116] frame_00650_png_jpg.rf.5aa7f572541d9050b IoU=0.9734
+[ 49/116] frame_00650_png_jpg.rf.6f0da546e10620bfd IoU=0.5068
+[ 50/116] frame_00675_png_jpg.rf.43c9f284a4e12afc1 IoU=0.8275
+[ 51/116] frame_00725_png_jpg.rf.39f47e7113ff0e2de IoU=0.9742
+[ 52/116] frame_00735_png_jpg.rf.7155aee52e4b1925d IoU=0.9256
+[ 53/116] frame_00750_png_jpg.rf.0b0c9dc67242fbb05 IoU=0.8906
+[ 54/116] frame_00750_png_jpg.rf.6f43d06da56217b7e IoU=0.5709
+[ 55/116] frame_00750_png_jpg.rf.a57962bd96a26a08a IoU=0.5694
+[ 56/116] gloves_in_the_ocean30_jpg.rf.6ad1023a52a IoU=0.2609
+[ 57/116] jgirjfie_jpg.rf.f69c61cf0c4df879508b3167 IoU=0.8799
+[ 58/116] mask_in_the_ocean6_jpg.rf.d765b9928f40fa IoU=0.6733
+[ 59/116] uwg_g-1028_jpg.rf.7d779155824e764106b5aa IoU=0.9834
+[ 60/116] uwg_g-1031__fliph_jpg.rf.d10229821bbc61a IoU=0.1169
+[ 61/116] uwg_g-1032__fliph_jpg.rf.483d926c2fc47d4 IoU=0.9748
+[ 62/116] uwg_g-1077__fliph_jpg.rf.4cb820d3e59647c IoU=0.8075
+[ 63/116] uwg_g-1083_jpg.rf.46880d575c793bdd29fe55 IoU=0.8903
+[ 64/116] uwg_g-1102__fliph_jpg.rf.0b5efe55a2798c7 IoU=0.9770
+[ 65/116] uwg_g-1118__fliph_jpeg_jpg.rf.62d482058b IoU=0.9678
+[ 66/116] uwg_g-1120_jpeg_jpg.rf.068c58d2255cd0c52 IoU=0.9679
+[ 68/116] uwg_g-480__fliph_jpg.rf.ee36b0c9decbabfc IoU=0.9701
+[ 69/116] uwg_g-484_jpg.rf.3ff79ded9d731324ed380f5 IoU=0.9848
+[ 70/116] uwg_g-492_jpg.rf.ba018aa2408cd604c91db89 IoU=0.8686
+[ 71/116] uwg_g-496__fliph_jpg.rf.1c7ed511ba8853db IoU=0.9635
+[ 73/116] uwg_g-504__fliph_jpg.rf.118cac69327ca820 IoU=0.9437
+[ 74/116] uwg_g-504_jpg.rf.9bbcfe69bf76ade4700e2e6 IoU=0.8941
+[ 75/116] uwg_g-522_jpg.rf.1331ae49389e222d31060e5 IoU=0.9221
+[ 76/116] uwg_g-530_jpg.rf.774385de9e34b1c3480ac45 IoU=0.9779
+[ 77/116] uwg_g-548__fliph_jpeg_jpg.rf.57e81fc98ef IoU=0.9810
+[ 79/116] uwg_g-567__fliph_jpg.rf.82fade897cf5b3a5 IoU=0.9801
+[ 80/116] uwg_g-572__fliph_jpg.rf.8d6c93358410c441 IoU=0.4568
+[ 81/116] uwg_g-592_jpg.rf.fabaf04c943789591e70500 IoU=0.9571
+[ 82/116] uwg_g-626__fliph_jpg.rf.72b468eb913bdeaa IoU=0.9634
+[ 83/116] uwg_g-633_jpg.rf.8dfce875f6436f535b80581 IoU=0.9786
+[ 85/116] uwg_g-643_jpg.rf.80965059100f45f35ec2e8b IoU=0.9640
+[ 86/116] uwg_g-653_jpg.rf.6dee2a0993de61ab0c16123 IoU=0.7748
+[ 87/116] uwg_g-668_jpg.rf.44def0c806899a52d807c8a IoU=0.9654
+[ 89/116] uwg_g-691_jpg.rf.9d5bbefebb815bd390ec67c IoU=0.9671
+[ 90/116] uwg_g-708_jpg.rf.7d7fe258a6a2616c3e9e358 IoU=0.9782
+[ 91/116] uwg_g-722_jpg.rf.e3b41160cdaa18803255473 IoU=0.9767
+[ 92/116] uwg_g-728__fliph_jpg.rf.6268d5eb059591d9 IoU=0.9449
+[ 93/116] uwg_g-734__fliph_jpg.rf.04b8188fca1e28b9 IoU=0.9744
+[ 94/116] uwg_g-734_jpg.rf.ac7212ece3661c0f207bc9c IoU=0.9611
+[ 95/116] uwg_g-736_jpg.rf.54866f13c77889522dfa291 IoU=0.9648
+[ 96/116] uwg_g-748__fliph_jpg.rf.0e60de9c0a7e901f IoU=0.9787
+[ 97/116] uwg_g-754__fliph_jpg.rf.f8207550e6b1d976 IoU=0.9854
+[ 98/116] uwg_g-800-1-_jpg.rf.1dc22b439f00ef73b1d0 IoU=0.8780
+[ 99/116] uwg_g-849__fliph_jpg.rf.a54eacd48120f3fc IoU=0.6881
+[100/116] uwg_g-878__fliph_jpg.rf.78b971f8dae6c33f IoU=0.9634
+[101/116] uwg_g-881__fliph_jpg.rf.73e40467957b2e2b IoU=0.9755
+[102/116] uwg_g-891_jpg.rf.6e8db607f69cce4564e22e2 IoU=0.9730
+[103/116] uwg_g-896__fliph_jpg.rf.cb6ab770496fb394 IoU=0.9841
+[104/116] uwg_g-896__flipv_jpg.rf.ee643f8f621360bf IoU=0.9821
+[106/116] uwg_g-916_jpg.rf.9498fd616a5ceb43ea61690 IoU=0.9784
+[108/116] uwg_g-968_jpg.rf.2bbdbea22af3700bc34e465 IoU=0.5365
+[110/116] uwg_yt-107_jpg.rf.8544aff9aa7317b0608011 IoU=0.0000
+[111/116] uwg_yt-147__fliph_png_jpg.rf.949825cefd9 IoU=0.4710
+[113/116] uwg_yt-21__fliph_jpg.rf.49e844392ade44b3 IoU=0.7710
+[114/116] uwg_yt-44__fliph_jpg.rf.fbf1d095a976072b IoU=0.1377
+[115/116] uwg_yt-79__fliph_jpg.rf.97fd9e778f184cee IoU=0.9610
+[116/116] uwg_yt-80_jpg.rf.32645ae352cb9147a0d2965 IoU=0.9608
+
+=======================================================
+SAM SEGMENTATION — TEST SET RESULTS
+=======================================================
+SAM variant        : vit_h
+YOLO weights       : marine-pollution-detection/yolov8n_seg_v2/weights/best.pt
+Total test images     : 116
+Images processed      : 104
+Skipped (no detection): 12
+Skipped (empty GT)    : 0
+
+Mean IoU              : 0.7922
+Std IoU               : 0.2577
+IoU >= 0.50 (%)       : 86.5%
+IoU >= 0.75 (%)       : 74.0%
+Min IoU               : 0.0000
+Max IoU               : 0.9871
+Avg inference time    : 41059.4 ms/image
+
+Results saved: results/sam_test_results.txt
+Plot saved: results/sam_iou_distribution.png
+
+
+

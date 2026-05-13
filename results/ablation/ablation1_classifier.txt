@@ -1,0 +1,15 @@
+ABLATION 1 — CLASSIFIER GATEKEEPER
+==================================================
+Total test images       : 430
+Plastic images          : 210
+No-plastic images       : 220
+
+WITHOUT classifier filter:
+  YOLO false pos images : 98
+  Total false boxes     : 114
+  Unnecessary YOLO runs : 220 (51.2%)
+
+WITH classifier filter:
+  YOLO runs on          : 210 images
+  Clean images blocked  : 220
+  Processing reduction  : ~51.2%

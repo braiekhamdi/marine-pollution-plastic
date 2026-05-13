@@ -1,0 +1,213 @@
+@braiekhamdi ➜ /workspaces/marine-pollution-plastic (main) $ python train.py
+Class labels: ['no-plastic', 'plastic']
+Train size:      1376
+Validation size: 344
+Test size:       430
+Using device: cpu
+
+=======================================================
+ Training: CustomCNN
+=======================================================
+Epoch   1 | Train Loss: 0.5839 | Train Acc: 68.60% | Val Loss: 0.4564 | Val Acc: 78.20%                                                                
+  → Best model saved (epoch 1)
+Epoch   2 | Train Loss: 0.4604 | Train Acc: 77.62% | Val Loss: 0.3870 | Val Acc: 80.23%                                                                
+  → Best model saved (epoch 2)
+Epoch   3 | Train Loss: 0.3993 | Train Acc: 82.05% | Val Loss: 0.3427 | Val Acc: 83.14%                                                                
+  → Best model saved (epoch 3)
+Epoch   4 | Train Loss: 0.3857 | Train Acc: 84.01% | Val Loss: 0.3132 | Val Acc: 84.01%                                                                
+  → Best model saved (epoch 4)
+Epoch   5 | Train Loss: 0.3513 | Train Acc: 85.10% | Val Loss: 0.2582 | Val Acc: 90.99%                                                                
+  → Best model saved (epoch 5)
+Epoch   6 | Train Loss: 0.3562 | Train Acc: 84.81% | Val Loss: 0.3033 | Val Acc: 91.28%                                                                
+Epoch   7 | Train Loss: 0.3191 | Train Acc: 87.06% | Val Loss: 0.2493 | Val Acc: 91.57%                                                                
+  → Best model saved (epoch 7)
+Epoch   8 | Train Loss: 0.3111 | Train Acc: 87.14% | Val Loss: 0.2304 | Val Acc: 90.41%                                                                
+  → Best model saved (epoch 8)
+Epoch   9 | Train Loss: 0.2774 | Train Acc: 88.15% | Val Loss: 0.2329 | Val Acc: 92.15%                                                                
+Epoch  10 | Train Loss: 0.2612 | Train Acc: 89.32% | Val Loss: 0.2081 | Val Acc: 92.15%                                                                
+  → Best model saved (epoch 10)
+Epoch  11 | Train Loss: 0.2625 | Train Acc: 88.88% | Val Loss: 0.2082 | Val Acc: 88.66%                                                                
+Epoch  12 | Train Loss: 0.2683 | Train Acc: 89.24% | Val Loss: 0.2109 | Val Acc: 91.28%                                                                
+Epoch  13 | Train Loss: 0.2592 | Train Acc: 89.46% | Val Loss: 0.2011 | Val Acc: 92.73%                                                                
+  → Best model saved (epoch 13)
+Epoch  14 | Train Loss: 0.2404 | Train Acc: 89.61% | Val Loss: 0.1797 | Val Acc: 93.31%                                                                
+  → Best model saved (epoch 14)
+Epoch  15 | Train Loss: 0.2459 | Train Acc: 89.61% | Val Loss: 0.1663 | Val Acc: 92.73%                                                                
+  → Best model saved (epoch 15)
+Epoch  16 | Train Loss: 0.2251 | Train Acc: 90.84% | Val Loss: 0.1609 | Val Acc: 93.31%                                                                
+  → Best model saved (epoch 16)
+Epoch  17 | Train Loss: 0.2386 | Train Acc: 89.61% | Val Loss: 0.1496 | Val Acc: 92.15%                                                                
+  → Best model saved (epoch 17)
+Epoch  18 | Train Loss: 0.2176 | Train Acc: 90.70% | Val Loss: 0.1728 | Val Acc: 93.90%                                                                
+Epoch  19 | Train Loss: 0.2188 | Train Acc: 90.26% | Val Loss: 0.1240 | Val Acc: 95.06%                                                                
+  → Best model saved (epoch 19)
+Epoch  20 | Train Loss: 0.1970 | Train Acc: 91.64% | Val Loss: 0.1406 | Val Acc: 93.02%                                                                
+Epoch  21 | Train Loss: 0.2036 | Train Acc: 91.35% | Val Loss: 0.1555 | Val Acc: 93.60%                                                                
+Epoch  22 | Train Loss: 0.1991 | Train Acc: 91.64% | Val Loss: 0.1367 | Val Acc: 95.06%                                                                
+Epoch  23 | Train Loss: 0.1915 | Train Acc: 92.22% | Val Loss: 0.1265 | Val Acc: 95.64%                                                                
+Epoch  24 | Train Loss: 0.1700 | Train Acc: 92.59% | Val Loss: 0.1184 | Val Acc: 95.35%                                                                
+  → Best model saved (epoch 24)
+Epoch  25 | Train Loss: 0.1581 | Train Acc: 93.31% | Val Loss: 0.1116 | Val Acc: 95.93%                                                                
+  → Best model saved (epoch 25)
+Epoch  26 | Train Loss: 0.1525 | Train Acc: 94.11% | Val Loss: 0.1176 | Val Acc: 96.22%                                                                
+Epoch  27 | Train Loss: 0.1571 | Train Acc: 93.31% | Val Loss: 0.0995 | Val Acc: 97.09%                                                                
+  → Best model saved (epoch 27)
+Epoch  28 | Train Loss: 0.1613 | Train Acc: 93.97% | Val Loss: 0.1053 | Val Acc: 96.80%                                                                
+Epoch  29 | Train Loss: 0.1620 | Train Acc: 93.17% | Val Loss: 0.0936 | Val Acc: 97.09%                                                                
+  → Best model saved (epoch 29)
+Epoch  30 | Train Loss: 0.1463 | Train Acc: 93.60% | Val Loss: 0.0958 | Val Acc: 97.38%                                                                
+Epoch  31 | Train Loss: 0.1547 | Train Acc: 93.60% | Val Loss: 0.0965 | Val Acc: 97.97%                                                                
+Epoch  32 | Train Loss: 0.1484 | Train Acc: 94.55% | Val Loss: 0.0923 | Val Acc: 97.97%                                                                
+  → Best model saved (epoch 32)
+Epoch  33 | Train Loss: 0.1482 | Train Acc: 93.82% | Val Loss: 0.0998 | Val Acc: 97.09%                                                                
+Epoch  34 | Train Loss: 0.1354 | Train Acc: 94.77% | Val Loss: 0.0880 | Val Acc: 97.67%                                                                
+  → Best model saved (epoch 34)
+Epoch  35 | Train Loss: 0.1357 | Train Acc: 95.06% | Val Loss: 0.1011 | Val Acc: 95.93%                                                                
+Epoch  36 | Train Loss: 0.1245 | Train Acc: 95.42% | Val Loss: 0.0808 | Val Acc: 97.67%                                                                
+  → Best model saved (epoch 36)
+Epoch  37 | Train Loss: 0.1418 | Train Acc: 94.40% | Val Loss: 0.0823 | Val Acc: 98.84%                                                                
+Epoch  38 | Train Loss: 0.1177 | Train Acc: 95.64% | Val Loss: 0.0717 | Val Acc: 98.55%                                                                
+  → Best model saved (epoch 38)
+Epoch  39 | Train Loss: 0.1179 | Train Acc: 95.49% | Val Loss: 0.0807 | Val Acc: 97.67%                                                                
+Epoch  40 | Train Loss: 0.1180 | Train Acc: 95.93% | Val Loss: 0.0859 | Val Acc: 97.67%                                                                
+Epoch  41 | Train Loss: 0.1317 | Train Acc: 94.69% | Val Loss: 0.1052 | Val Acc: 96.51%                                                                
+Epoch  42 | Train Loss: 0.1096 | Train Acc: 96.51% | Val Loss: 0.0612 | Val Acc: 98.55%                                                                
+  → Best model saved (epoch 42)
+Epoch  43 | Train Loss: 0.1082 | Train Acc: 96.44% | Val Loss: 0.0727 | Val Acc: 98.26%                                                                
+Epoch  44 | Train Loss: 0.1020 | Train Acc: 96.51% | Val Loss: 0.1099 | Val Acc: 95.93%                                                                
+Epoch  45 | Train Loss: 0.1191 | Train Acc: 95.71% | Val Loss: 0.1019 | Val Acc: 96.51%                                                                
+Epoch  46 | Train Loss: 0.1253 | Train Acc: 95.42% | Val Loss: 0.0643 | Val Acc: 98.84%                                                                
+Epoch  47 | Train Loss: 0.1070 | Train Acc: 96.58% | Val Loss: 0.0666 | Val Acc: 97.67%                                                                
+
+Early stopping at epoch 47. Best epoch: 42
+Curves saved: results/CustomCNN_training_curves.png
+
+── CustomCNN Evaluation ──
+
+--- Train Results ---
+              precision    recall  f1-score   support
+
+  no-plastic     0.9676    0.9703    0.9690       708
+     plastic     0.9685    0.9656    0.9670       668
+
+    accuracy                         0.9680      1376
+   macro avg     0.9680    0.9680    0.9680      1376
+weighted avg     0.9680    0.9680    0.9680      1376
+
+Accuracy: 96.80%
+Confusion Matrix:
+[[687  21]
+ [ 23 645]]
+
+--- Validation Results ---
+              precision    recall  f1-score   support
+
+  no-plastic     0.9827    0.9884    0.9855       172
+     plastic     0.9883    0.9826    0.9854       172
+
+    accuracy                         0.9855       344
+   macro avg     0.9855    0.9855    0.9855       344
+weighted avg     0.9855    0.9855    0.9855       344
+
+Accuracy: 98.55%
+Confusion Matrix:
+[[170   2]
+ [  3 169]]
+
+--- Test Results ---
+              precision    recall  f1-score   support
+
+  no-plastic     0.9264    0.6864    0.7885       220
+     plastic     0.7416    0.9429    0.8302       210
+
+    accuracy                         0.8116       430
+   macro avg     0.8340    0.8146    0.8094       430
+weighted avg     0.8361    0.8116    0.8089       430
+
+Accuracy: 81.16%
+Confusion Matrix:
+[[151  69]
+ [ 12 198]]
+Downloading: "https://download.pytorch.org/models/mobilenet_v2-b0353104.pth" to /home/codespace/.cache/torch/hub/checkpoints/mobilenet_v2-b0353104.pth
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13.6M/13.6M [00:00<00:00, 252MB/s]
+
+=======================================================
+ Training: MobileNetV2
+=======================================================
+Epoch   1 | Train Loss: 0.1814 | Train Acc: 93.02% | Val Loss: 0.0346 | Val Acc: 98.84%                                                                
+  → Best model saved (epoch 1)
+Epoch   2 | Train Loss: 0.1240 | Train Acc: 95.93% | Val Loss: 0.0412 | Val Acc: 98.55%                                                                
+Epoch   3 | Train Loss: 0.0721 | Train Acc: 97.53% | Val Loss: 0.0137 | Val Acc: 99.42%                                                                
+  → Best model saved (epoch 3)
+Epoch   4 | Train Loss: 0.1148 | Train Acc: 96.00% | Val Loss: 0.0198 | Val Acc: 100.00%                                                               
+Epoch   5 | Train Loss: 0.0840 | Train Acc: 97.38% | Val Loss: 0.0209 | Val Acc: 99.42%                                                                
+Epoch   6 | Train Loss: 0.0546 | Train Acc: 98.47% | Val Loss: 0.0584 | Val Acc: 98.55%                                                                
+Epoch   7 | Train Loss: 0.0439 | Train Acc: 98.55% | Val Loss: 0.0205 | Val Acc: 99.42%                                                                
+Epoch   8 | Train Loss: 0.0612 | Train Acc: 98.47% | Val Loss: 0.0186 | Val Acc: 99.71%                                                                
+
+Early stopping at epoch 8. Best epoch: 3
+Curves saved: results/MobileNetV2_training_curves.png
+
+── MobileNetV2 Evaluation ──
+
+--- Train Results ---
+              precision    recall  f1-score   support
+
+  no-plastic     0.9930    1.0000    0.9965       708
+     plastic     1.0000    0.9925    0.9962       668
+
+    accuracy                         0.9964      1376
+   macro avg     0.9965    0.9963    0.9964      1376
+weighted avg     0.9964    0.9964    0.9964      1376
+
+Accuracy: 99.64%
+Confusion Matrix:
+[[708   0]
+ [  5 663]]
+
+--- Validation Results ---
+              precision    recall  f1-score   support
+
+  no-plastic     0.9942    0.9942    0.9942       172
+     plastic     0.9942    0.9942    0.9942       172
+
+    accuracy                         0.9942       344
+   macro avg     0.9942    0.9942    0.9942       344
+weighted avg     0.9942    0.9942    0.9942       344
+
+Accuracy: 99.42%
+Confusion Matrix:
+[[171   1]
+ [  1 171]]
+
+--- Test Results ---
+              precision    recall  f1-score   support
+
+  no-plastic     0.9906    0.9545    0.9722       220
+     plastic     0.9541    0.9905    0.9720       210
+
+    accuracy                         0.9721       430
+   macro avg     0.9723    0.9725    0.9721       430
+weighted avg     0.9728    0.9721    0.9721       430
+
+Accuracy: 97.21%
+Confusion Matrix:
+[[210  10]
+ [  2 208]]
+
+======================================================================
+
+======================================================================
+MODEL COMPARISON TABLE
+(Precision / Recall / F1-score)
+======================================================================
+Model                  Split         no-plastic F1   plastic F1   Accuracy
+----------------------------------------------------------------------
+CustomCNN              Train                0.9690       0.9670     96.80%
+CustomCNN              Validation           0.9855       0.9854     98.55%
+CustomCNN              Test                 0.7885       0.8302     81.16%
+----------------------------------------------------------------------
+MobileNetV2            Train                0.9965       0.9962     99.64%
+MobileNetV2            Validation           0.9942       0.9942     99.42%
+MobileNetV2            Test                 0.9722       0.9720     97.21%
+----------------------------------------------------------------------

@@ -1,0 +1,15 @@
+ABLATION 2 — YOLO-only vs YOLO+SAM SEGMENTATION
+==================================================
+YOLO-only segmentation masks:
+  Evaluated images : 112
+  Mean IoU         : 0.8833
+  IoU >= 0.50 (%)  : 96.4%
+  IoU >= 0.75 (%)  : 91.1%
+
+YOLO + SAM segmentation:
+  Evaluated images : 104
+  Mean IoU         : 0.7922
+  IoU >= 0.50 (%)  : 86.5%
+  IoU >= 0.75 (%)  : 74.0%
+
+SAM improvement (delta IoU): +-0.0911
