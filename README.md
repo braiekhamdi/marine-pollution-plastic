@@ -19,10 +19,33 @@ Plastic pollution poses a severe threat to aquatic ecosystems. This project impl
 
 The framework is designed for real-world deployment on boats, drones, or riverbank cameras and emphasizes efficiency, robustness to low-contrast/noisy aquatic conditions, and reproducibility.
 
-**Key Results**:
-- **Classification**: MobileNetV2 achieves **97.21%** test accuracy
-- **Detection**: YOLOv8n-seg reaches **mAP@0.50 = 0.6331** on test set
-- **Segmentation**: SAM achieves **mean IoU = 0.7922** (86.5% of images > 0.50 IoU)
+---
+
+## 📋 Overview
+
+This repository contains the full implementation of a three-stage deep learning pipeline for detecting, classifying, and segmenting plastic debris in underwater and river optical images.
+
+```
+Input Image
+    │
+    ▼
+┌─────────────────────────────┐
+│  Stage 1 — Classification   │  MobileNetV2 (transfer learning)
+│  Is there plastic?          │  97.21% test accuracy
+└──────────────┬──────────────┘
+               │ Yes → continue   No → stop
+               ▼
+┌─────────────────────────────┐
+│  Stage 2 — Detection        │  YOLOv8n-seg + CIoU loss
+│  Where is the plastic?      │  mAP@0.50 = 0.6331 (test)
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│  Stage 3 — Segmentation     │  SAM ViT-H (zero-shot)
+│  Pixel-level masks          │  Mean IoU = 0.7922 (test)
+└─────────────────────────────┘
+```
 
 ---
 
@@ -93,15 +116,29 @@ marine-pollution-plastic/
 
 ## 📥 Dataset Download
 
-### Option A: KaggleHub (Classification Dataset)
+### A: KaggleHub (Classification Dataset) 
+**SouvikDataset** — Marine Plastic Pollution  
 
 ```bash
 python3 downloadDataset.py
 ```
 
 → This creates a folder `mydataset/` (~1.53 GB) with `train/`, `val/`, `test/` subfolders, each containing `plastic/` and `no-plastic/` classes.
+- 2,150 underwater images  
+- 2 classes: `clean water` and `plastic`  
+- License: Open (research use) 
 
-### Option B: Roboflow (Detection + Segmentation Dataset)
+Verify the `mydataset` folder contains:
+```
+mydataset/
+├── train/no-plastic/   (images)
+├── train/plastic/      (images)
+├── test/no-plastic/    (images)
+└── test/plastic/       (images)
+```
+
+### B: Roboflow (Detection + Segmentation Dataset)
+**Underwater Plastic Segmentation** (Roboflow) 
 > **Note:** Replace the API key in `downloadDatasetRoboflow.py` with your own key from [Roboflow](https://roboflow.com/).
 
 ```bash
@@ -109,12 +146,52 @@ python3 downloadDatasetRoboflow.py
 ```
 
 → This creates a folder `segmentation_dataset-1/` with `data.yaml` and `train/`, `val/`, `test/` splits (images + YOLO‑format labels).
-
+- 1,164 annotated images  
+- 6 classes: `plastic_bag`, `plastic_bottle`, `plastic_cup`, `face_mask`, `globe`, `plastic_waste`  
+- Format: YOLO segmentation (polygon annotations)  
+- License: Academic / Non-commercial  
 ---
+
+Verify the `data.yaml` file contains:
+```yaml
+train: ../train/images
+val:   ../valid/images
+test:  ../test/images
+nc: 6
+names: ['face_mask','globe','plastic_bag',
+        'plastic_bottle','plastic_cup',
+        'plastic_waste']
+```
+
+
+### Data Split Used
+
+| Split      | Classification | Detection/Segmentation |
+|------------|---------------|------------------------|
+| Train      | 1,376 images  | 815 images             |
+| Validation | 344 images    | 233 images             |
+| Test       | 430 images    | 116 images             |
+| Ratio      | 80/20 of train split | 70/15/15 |
+
+> ⚠️ The test set was kept completely separate from all training and model selection steps. All final numbers in the paper are reported on the held-out test set only.
+
+Verify Data Loading
+
+```bash
+python dataset_loader.py
+```
+
+Expected output:
+```
+Class labels: ['no-plastic', 'plastic']
+Train size:      1376
+Validation size: 344
+Test size:       430
+```
 
 ## 📥 Model Weights (SAM)
 
-Download the SAM ViT‑H checkpoint:
+Download manually the SAM ViT‑H checkpoint (file is too large for GitHub: 2.38GB)
 
 ```bash
 mkdir -p sam_models
@@ -122,6 +199,7 @@ wget -P sam_models https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8
 ```
 
 ---
+
 
 ## 🚀 Pipeline Stages
 
@@ -133,10 +211,28 @@ Train both **CustomCNN** and **MobileNetV2** models:
 python3 train.py
 ```
 
+
+**Training time:** ~45 minutes on CPU 
 - Outputs:  
   - `models/CustomCNN_best.pth`  
   - `models/MobileNetV2_best.pth`  
-- Plots and metrics saved in `results/` (training curves, comparison table)  
+- Plots and metrics saved in `results/` (training curves, comparison table):
+  - `results/CustomCNN_training_curves.png` 
+  - `results/MobileNetV2_training_curves.png` 
+  - `results/model_comparison.txt`   
+
+**Key configuration:**
+
+| Parameter       | Custom CNN | MobileNetV2 |
+|-----------------|-----------|-------------|
+| Optimizer       | Adam      | Adam        |
+| Learning rate   | 0.0001    | 0.0001      |
+| Weight decay    | 1e-4      | 1e-4        |
+| Batch size      | 8         | 8           |
+| Max epochs      | 50        | 50          |
+| Early stopping  | patience=5| patience=5  |
+| Best epoch      | 42        | 3           |
+
 
 **MobileNetV2 is used in the final pipeline.** Test accuracy: **97.21%**
 
@@ -153,6 +249,22 @@ python3 train_yolo_detection.py
 - Best weights saved in `marine-pollution-detection/yolov8n_seg_v2/weights/best.pt`  
 - Final model copied to `models/yolov8n_trained_final.pt` 
 
+**Key configuration:**
+
+| Parameter         | Value  |
+|-------------------|--------|
+| Model             | YOLOv8n-seg |
+| Epochs            | 50 (best at 49) |
+| Optimizer         | SGD    |
+| Learning rate     | 0.01   |
+| Momentum          | 0.937  |
+| Weight decay      | 0.0005 |
+| Warmup epochs     | 3      |
+| Batch size        | 8      |
+| Image size        | 640    |
+| Early stopping    | patience=10 |
+| Conf threshold    | 0.25   |
+| NMS IoU threshold | 0.45   |
 
 **Evaluate on test set:**
 
@@ -220,13 +332,66 @@ Test the full pipeline on your own images or sample data!
 
 
 
-## 📊 Expected Results  
+## 📊 Results Summary
 
-| Stage              | Model              | Key Metric                  | Value      |
-|--------------------|--------------------|-----------------------------|------------|
-| Classification     | MobileNetV2        | Test Accuracy               | 97.21%    |
-| Detection          | YOLOv8n-seg        | mAP@0.50 (Test)             | 0.6331    |
-| Segmentation       | YOLOv8 + SAM ViT-H | Mean IoU (Test)             | 0.7922    |
+### Stage 1 — Classification
+
+| Model          | Split | Accuracy | Plastic F1 |
+|----------------|-------|----------|------------|
+| Custom CNN     | Train | 96.80%   | 0.967      |
+| Custom CNN     | Val   | 98.55%   | 0.985      |
+| **Custom CNN** | **Test** | **81.16%** | **0.830** |
+| MobileNetV2    | Train | 99.64%   | 0.996      |
+| MobileNetV2    | Val   | 99.42%   | 0.994      |
+| **MobileNetV2** | **Test** | **97.21%** | **0.972** |
+
+### Stage 2 — Detection (Test Set)
+
+| Class          | AP@0.50 | Precision | Recall |
+|----------------|---------|-----------|--------|
+| plastic_bag    | 0.9437  | 0.9462    | 0.8506 |
+| plastic_bottle | 0.8007  | 0.9130    | 0.6316 |
+| face_mask      | 0.7873  | 0.8509    | 0.7170 |
+| globe          | 0.6392  | 0.6372    | 0.6667 |
+| plastic_waste  | 0.6278  | 0.5864    | 0.6304 |
+| plastic_cup    | 0.0000  | 0.0000    | 0.0000 |
+| **Overall**    | **0.6331** | **0.6556** | **0.5827** |
+
+> `plastic_cup` has only 1 test image — not evaluable, excluded from mean.
+
+### Stage 3 — Segmentation (Test Set)
+
+| Metric            | Value   |
+|-------------------|---------|
+| Total test images | 116     |
+| Images processed  | 104     |
+| Skipped (no det.) | 12      |
+| **Mean IoU**      | **0.7922** |
+| Std IoU           | 0.2577  |
+| Min IoU           | 0.0000  |
+| Max IoU           | 0.9871  |
+| **IoU ≥ 0.50**   | **86.5%** |
+| **IoU ≥ 0.75**   | **74.0%** |
+
+### Ablation Study
+
+| Config                         | YOLO Input | FP Events | Mean IoU | IoU≥0.50 |
+|-------------------------------|-----------|-----------|----------|----------|
+| No filter + YOLO-only         | 430        | 98        | 0.8833   | 96.4%    |
+| No filter + YOLO+SAM          | 430        | 98        | 0.7922   | 86.5%    |
+| **Full pipeline + YOLO-only** | **210**    | **0**     | **0.8833** | **96.4%** |
+| Full pipeline + YOLO+SAM      | 210        | 0         | 0.7922   | 86.5%    |
+
+### End-to-End Pipeline Analysis
+
+| Stage                  | Value  | Cumulative Rate |
+|------------------------|--------|-----------------|
+| 1 — Classification     | 0.9905 | 0.9905          |
+| 2 — Detection          | 0.5827 | 0.5772          |
+| 3 — Coverage           | 0.8966 | 0.5175          |
+| 3 — IoU ≥ 0.50         | 0.8650 | **0.4476**      |
+
+> End-to-end success rate: **~44.9%** of plastic images → correct classification → detection → mask with IoU ≥ 0.50.
 
 See `results/` folder for full tables, confusion matrices, and plots.
 
@@ -245,11 +410,22 @@ The pipeline produces:
 
 
 ## 🔧 Troubleshooting
+**`ReduceLROnPlateau: unexpected keyword argument 'verbose'`**  
+Remove the `verbose=True` argument from the scheduler — it was removed in newer PyTorch versions.
 
-- **Out of memory**: Reduce batch size in training scripts
-- **Dataset not found**: Ensure both download scripts ran successfully
-- **SAM slow on CPU**: Expected — use GPU if available
-- **Roboflow API key**: The provided key works for public dataset
+**`No module named 'segment_anything'`**
+```bash
+pip install git+https://github.com/facebookresearch/segment-anything.git
+```
+
+**`pin_memory warning`**  
+This is a non-critical warning from PyTorch when no GPU is available. It does not affect results.
+
+**SAM takes very long (~40 seconds/image)**  
+This is expected on CPU. SAM ViT-H is a large transformer model. On a GPU it runs in ~0.2 seconds. Use YOLO built-in masks for faster inference.
+
+**`faster-coco-eval` auto-installs during evaluation**  
+This is handled automatically by Ultralytics. Re-run the script after it installs.
 
 ---
 
@@ -260,7 +436,7 @@ Contributions welcome! Feel free to open issues or PRs for improvements, new dat
 ---
 
 
-**Made with ❤️ for environmental conservation and marine ecosystem protection.**
+*Made with ❤️ for environmental conservation and marine ecosystem protection.*
 
 *Let's clean our waters with AI!*
 
@@ -270,7 +446,7 @@ Contributions welcome! Feel free to open issues or PRs for improvements, new dat
 If you use this code in your research, please cite the original paper:
 
 ```bibtex
-@article{braiek2025deep,
+@article{braiek2026deep,
   title={Deep Learning-Based Framework for Plastic Debris Detection in Dynamic Aquatic Ecosystems},
   author={Braiek, Hamdi},
   journal={},
@@ -282,5 +458,5 @@ If you use this code in your research, please cite the original paper:
 
 - Author: Hamdi Braiek  
 - Email: hamdi.houichet@gmail.com  
-- GitHub: [braiekhandi](https://github.com/braiekhandi)
+- GitHub: [braiekhanmdi](https://github.com/braiekhamdi)
 ---
