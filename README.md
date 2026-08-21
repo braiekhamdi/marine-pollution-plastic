@@ -379,7 +379,7 @@ Test the full pipeline on your own images or sample data!
 |-------------------------------|-----------|-----------|----------|----------|
 | No filter + YOLO-only         | 430        | 98        | 0.8833   | 96.4%    |
 | No filter + YOLO+SAM          | 430        | 98        | 0.7922   | 86.5%    |
-| **Full pipeline + YOLO-only** | **210**    | **0**     | **0.8833** | **96.4%** |
+| **Full pipeline + YOLO-only** | **210**    | **0**     | **0.7944** | **88.5%** |
 | Full pipeline + YOLO+SAM      | 210        | 0         | 0.7922   | 86.5%    |
 
 ### End-to-End Pipeline Analysis
